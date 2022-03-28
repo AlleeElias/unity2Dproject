@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (hp <= 0) { Destroy(gameObject,2); }
+        if (hp <= 0) { gameObject.SetActive(false); }
     }
     //Hit detection is done in the player class
     public void isHit(float damage) {

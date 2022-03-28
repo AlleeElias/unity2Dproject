@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Downkey for crouching while standing still
-        if (Input.GetKey(KeyCode.S) && isGrounded() && horInput == 0) { anim.SetBool("crouching", true); }
+        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && isGrounded() && horInput == 0) { anim.SetBool("crouching", true); }
         else { anim.SetBool("crouching", false); }
         /*
         //Downkey while walking

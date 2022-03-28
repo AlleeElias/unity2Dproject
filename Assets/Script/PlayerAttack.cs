@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
     private Animator anim;
     private PlayerMovement movement;
     private float cooldownTimer;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject[] fireBalls;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +23,22 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && movement.canShoot()) {
+        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.R)) && cooldownTimer > attackCooldown && movement.canShoot()) {
             Attack();
         }
         cooldownTimer += Time.deltaTime;
     }
 
+    //Plays the animation of throwing
     private void Attack() {
         cooldownTimer = 0;
         anim.SetTrigger("shoot");
+    }
+
+    //Wait for actual animation before the shot is fired
+    private void setShoot() {
+        //pooling fireballs
+        fireBalls[0].transform.position = firePoint.position;
+        fireBalls[0].GetComponent<Projectile>().setDirection(Mathf.Sign(transform.localScale.x));
     }
 }

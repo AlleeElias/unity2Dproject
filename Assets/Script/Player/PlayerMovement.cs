@@ -15,6 +15,14 @@ public class PlayerMovement : NetworkBehaviour
     private float wallCooldown;
     //private bool isKicking;
 
+    public override void OnNetworkSpawn()
+    {
+        if (IsOwner)
+        {
+            Debug.Log("Dit is de server?");
+        }
+    }
+
     void Awake()
     {
         //Create reference to the needed components of the player

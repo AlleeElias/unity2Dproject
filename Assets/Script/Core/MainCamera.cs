@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class MainCamera : MonoBehaviour
+public class MainCamera : NetworkBehaviour
 {
     private float speed;
     private float currentPosX;

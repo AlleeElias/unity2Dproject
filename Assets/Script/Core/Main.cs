@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Main : MonoBehaviour
+public class Main : NetworkBehaviour
 {
    [SerializeField] private Rigidbody2D followTransform;
    private Rigidbody2D body;

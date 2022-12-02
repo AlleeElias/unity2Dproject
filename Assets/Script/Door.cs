@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     [SerializeField] private Transform previousRoom;
     [SerializeField] private Transform nextRoom;
     [SerializeField] private MainCamera cam;
-
+/*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") {
@@ -19,5 +19,5 @@ public class Door : MonoBehaviour
                 cam.moveToNewRoom(previousRoom);
             }
         }
-    }
+    }*/
 }

@@ -36,7 +36,7 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        print(onWall());
+        //print(onWall());
         //Check if an arrowkey is pressed
         horInput = Input.GetAxis("Horizontal");
 

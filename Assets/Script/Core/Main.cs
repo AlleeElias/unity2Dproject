@@ -16,10 +16,4 @@ public class Main : NetworkBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = target;
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-       // body.velocity = new Vector2(followTransform.velocity.x, followTransform.velocity.y);
-    }
 }

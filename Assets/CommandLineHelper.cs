@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class CommandLineHelper : MonoBehaviour
+public class CommandLineHelper : NetworkBehaviour
 {
     private NetworkManager netManager;
 

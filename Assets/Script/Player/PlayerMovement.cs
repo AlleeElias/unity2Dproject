@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     //Create private fields for later use
     private Enemy enem;
@@ -27,15 +28,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //playerControl();
-        //playerAttacks();
-        //Empty the enem every frame so different enemies can be attacked
-        //this.enem = null;
-        //print(isKicking);
         print(onWall());
         //Check if an arrowkey is pressed
         horInput = Input.GetAxis("Horizontal");
-        //float vertInput = Input.GetAxis("Vertical");
 
         //Change sprite direction based on input
         if (horInput > 0.01f) { transform.localScale = Vector3.one; }

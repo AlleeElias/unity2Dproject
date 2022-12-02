@@ -39,9 +39,9 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Check if the local player is pressing stuff
         if (IsLocalPlayer)
         {
-            //print(onWall());
             //Check if an arrowkey is pressed
             horInput = Input.GetAxis("Horizontal");
 
@@ -113,7 +113,7 @@ public class PlayerMovement : NetworkBehaviour
                 //Space for jumping
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    //This is implement in  a different void for optimization
+                    //This is implemented in a different void for optimization
                     jump();
                 }
             }
@@ -123,6 +123,7 @@ public class PlayerMovement : NetworkBehaviour
             }
         }
     }
+
     //jumping in seperate void for optimization
     private void jump()
     {

@@ -1,0 +1,1 @@
+Tutorial.exe -mode server && Tutorial.exe -mode client

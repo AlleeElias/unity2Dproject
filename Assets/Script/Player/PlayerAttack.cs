@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : NetworkBehaviour
 {
     private float attackCooldown;
     private Animator anim;
@@ -23,20 +24,27 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.R)) && cooldownTimer > attackCooldown && movement.canShoot()) {
-            Attack();
+        if (IsLocalPlayer)
+        {
+            if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.R)) && cooldownTimer > attackCooldown &&
+                movement.canShoot())
+            {
+                Attack();
+            }
+            cooldownTimer += Time.deltaTime;
         }
-        cooldownTimer += Time.deltaTime;
     }
 
     //Plays the animation of throwing
-    private void Attack() {
+    private void Attack()
+    {
         cooldownTimer = 0;
         anim.SetTrigger("shoot");
     }
 
     //Wait for actual animation before the shot is fired
-    private void setShoot() {
+    private void setShoot()
+    {
         //pooling fireballs
         fireBalls[0].transform.position = firePoint.position;
         fireBalls[0].GetComponent<Projectile>().setDirection(Mathf.Sign(transform.localScale.x));

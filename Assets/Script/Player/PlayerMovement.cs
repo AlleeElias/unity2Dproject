@@ -19,7 +19,7 @@ public class PlayerMovement : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (IsHost)
+        if (IsClient)
         {
             Debug.Log("Dit is een player??");
             gameObject.GetComponent<Transform>().position = new Vector3(-1, 0, 0);

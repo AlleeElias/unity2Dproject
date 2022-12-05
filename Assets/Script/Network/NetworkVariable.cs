@@ -11,14 +11,15 @@ public class NetworkVariable : NetworkBehaviour
         {
             Debug.Log("Dit is de server");
         }
-
         if (IsHost)
         {
             Debug.Log("Dit is de host");
         }
         if (IsClient)
         {
-            Debug.Log("Dit is de client");
+            SpawnPosition = new NetworkVariable<Vector3>(new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,gameObject.transform.position.z));
+            
+            Debug.Log("Dit is de client: " + SpawnPosition);
         }
     }
 }

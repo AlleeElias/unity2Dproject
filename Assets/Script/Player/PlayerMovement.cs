@@ -1,9 +1,11 @@
+using System;
 using Unity.Netcode;
 using Unity.Netcode.Components;
 using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    public NetworkVariable<Vector3> position;
     //Create private fields for later use
     private Enemy enem;
     private Animator anim;
@@ -37,7 +39,7 @@ public class PlayerMovement : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //Check if the local player is pressing stuff
         if (IsLocalPlayer)
